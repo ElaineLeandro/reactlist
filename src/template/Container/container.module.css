@@ -2,6 +2,7 @@
   display: grid;
   grid-template-areas: "header" "section" "footer";
   width: 100%;
+  height: 100vh;
 }
 
 .header{
@@ -33,8 +34,6 @@
   font-weight: lighter;
   text-align: center;
   display: block;
-  
-  gap: 0.95rem;
 }
 
 

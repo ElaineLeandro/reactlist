@@ -1,32 +1,37 @@
-import {PlusCircle, Trash} from 'phosphor-react'
+import {Pencil, PlusCircle, Trash} from 'phosphor-react'
 import styles from './home.module.css'
 
 export function Home(){
   return(
-    <section className="context">
-      <header>
-      <div className="topo">
+    <section className={styles.home}>
+      <div className={styles.topo}>
         <input
          type="text"
           placeholder="Adicione uma nova tarefa"/>
           <button>
-            <PlusCircle/>
+            <PlusCircle size={16} />
           </button>
       </div>
-      </header>
-      <main>
-        <ul>
+      
+      <div className={styles.lista}>
+        <ul className={styles.list}>
           <li>
             <label>
-              <input type="checkbox"/>
-              <span className={styles.context}>Terefa 1</span>
+             
+              <span className={styles.te}>...</span>
             </label>
-            <button className={styles.button}>
-              <Trash/>
-            </button>
+            <div>
+              <button className={styles.buttonAcao}>
+                <Pencil size={16}/>
+              </button>
+              <button className={styles.buttonAcao}>
+                <Trash size={16}/>
+              </button>
+            </div>
+
           </li>
         </ul>
-      </main>
+      </div>
     
     </section>
   )

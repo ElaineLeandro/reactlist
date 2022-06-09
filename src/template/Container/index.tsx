@@ -12,15 +12,12 @@ export function Container({children} : ContainerPropos){
     <div className={styles.container}>
       <header className={styles.header}>
         <h1>
-          <PencilLine size={32} color="#cccccc"/>
+          <PencilLine size={32}/>
           Lista de Tarefas
         </h1>
       </header>
       <section className={styles.section}>
         {children}
-        <p>
-        Só há duas maneiras de viver a vida: a primeira é vivê-la como se os milagres não existissem. A segunda é vivê-la como se tudo fosse milagre.
-        </p>
       </section>
       <footer className={styles.footer}>
         <p>
