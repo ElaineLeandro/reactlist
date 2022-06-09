@@ -1,0 +1,40 @@
+.container{
+  display: grid;
+  grid-template-areas: "header" "section" "footer";
+  width: 100%;
+}
+
+.header{
+  background: var(--gray-800);
+  grid-area: header;
+  height: 10vh;
+  
+}
+
+.header h1{
+  text-align: center;
+}
+
+.section{
+  background: var(--gray-300);
+  grid-area: section;
+  height: 80vh;
+  
+}
+
+.footer{
+  background: var(--gray-800);
+  grid-area:footer;
+  height: 10vh;
+}
+
+.footer p{
+  padding: 0 1.5rem;
+  font-weight: lighter;
+  text-align: center;
+  display: block;
+  
+  gap: 0.95rem;
+}
+
+
