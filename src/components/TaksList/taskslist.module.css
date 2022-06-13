@@ -1,0 +1,30 @@
+
+.list{
+  list-style-type: none;
+  padding:0;
+  margin:0;
+}
+
+.list li{
+  padding: 20px;
+  background: var(--gray-800);
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonAcao{
+  border: 1px solid var(--gray-700);
+  border-radius: 20px;
+  background: var(--gray-800);
+  color: var(--gray-50);
+  width: 38px;
+  height: 38px;
+  margin-right: 8px;
+}
+
+.buttonAcao:hover{
+  background: var(--gray-900);
+  cursor: pointer;
+}
