@@ -1,43 +1,8 @@
 .home{
-  margin: 0 auto;
-  width: 100%;
-  max-width: 450px;
-  margin-top: 50px;
-  background-color: var(--gray-900);
-  padding: 55px;
-  border-radius:12px;
-}
-
-.topo{
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 35px;
-}
-
-.topo input{
-  width: 350px;
-  padding:15px;
-  border-radius: 12px;
-  border: 1px solid var(--gray-800);
-  outline: none;
-  font-size: 1.2rem;
-  background:var(--gray-800);
-  color: var(--gray-50);
-}
-
-.topo button{
-  width: 45px;
-  border: 1px solid var(--gray-800);
-  border-radius: 12px;
-  background:var(--gray-800);
-  color:var(--gray-50);
-  outline:none;
-}
-
-.topo button:hover{
-  background: transparent;
-  cursor: pointer;
-  transition: 0.5s;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
 }
 
 .list{

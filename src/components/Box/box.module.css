@@ -1,0 +1,8 @@
+.box{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--gray-900);
+  padding: 60px;
+  border-radius:12px;
+}

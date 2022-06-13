@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 import {Butterfly, PencilLine} from 'phosphor-react';
 import styles from './container.module.css';
+import { Box } from '../../components/Box';
 
 type ContainerPropos={
   children: ReactNode
@@ -11,19 +12,21 @@ export function Container({children} : ContainerPropos){
   return(
     <div className={styles.container}>
       <header className={styles.header}>
-        <h1>
-          <PencilLine size={32}/>
-          Lista de Tarefas
-        </h1>
+        <div className={styles.title}>
+          <span><PencilLine size={32}/></span>
+          <h1>
+            Lista de Tarefas
+          </h1>
+        </div>   
       </header>
-      <section className={styles.section}>
+      <div className={styles.section}>
         {children}
-      </section>
+      </div>
       <footer className={styles.footer}>
-        <p>
-          <Butterfly/>
-          Elaine Landro2022
-        </p>
+        <div className={styles.footerStyle}>
+        <span> <Butterfly/></span>
+        <p>Elaine Leandro-2022</p>
+        </div>
       </footer>
 
     </div>
