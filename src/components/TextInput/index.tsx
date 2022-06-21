@@ -8,7 +8,7 @@ export function TextInput(){
     type="text"
       placeholder="Adicione uma nova tarefa"/>
 
-      <button>
+      <button title="Adicionar um item">
         <PlusCircle size={16} />
       </button>
       

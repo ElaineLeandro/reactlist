@@ -13,6 +13,13 @@
   --gray-700:#3f3f46;
   --gray-800: #27272a;
   --gray-900: #18181b;
+
+ 
+
+}
+*:focus{
+  outline: transparent;
+  box-shadow: 0 0 0 2px var(--green-400);
 }
 
 body{
@@ -21,7 +28,7 @@ body{
   -webkit-font-smoothing: antialiased;
 }
 
-body, input, select, textarea{
+body, input, select, textarea, button{
   font-family: 'IBM Plex Sans Condensed', sans-serif;
   font-weight:400;
   font-size:1rem;
