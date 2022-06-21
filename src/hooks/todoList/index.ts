@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { generateId } from '../../utils/generateId'
 
 export function todoList(){
+  const [textInput, setTextInput] = useState('');
  
   const [list, setList] = useState([{
     id:1,
@@ -11,10 +13,16 @@ export function todoList(){
     name:"pizza",
     done: false,
   }]);
+  console.log("Lista",list)
+  console.log("Oi", textInput)
 
    const handleAdd = () =>{
-    console.log(handleAdd)
+    const newItem = { id:generateId(), name: textInput, done:false};
+    setList([...list, newItem]);
+    setTextInput('')
+
   };
+  
 
   const handleEdit = () =>{
     console.log(handleEdit)
@@ -27,7 +35,8 @@ export function todoList(){
   const handleDelete = () =>{
     console.log(handleDelete)
   };
-
+   
+  
 
   return { 
     list,
@@ -35,5 +44,7 @@ export function todoList(){
     handleEdit,
     handleDone,
     handleDelete,
+    textInput,
+    setTextInput
   }
 }

@@ -6,11 +6,17 @@ import styles from './home.module.css'
 
 
 export function Home(){
-  const {list}= todoList()
+  const {list, textInput, setTextInput, handleAdd} = todoList()
+  
   return(
     <section className={styles.home}>
       <Box>
-        <TextInput/>
+        <TextInput 
+        name={textInput}
+        onChangeName={setTextInput}
+        onAdd={handleAdd}
+      />
+   
         {list.map(item =>{
           return (<TaskItem key={item.id} id={item.id} name={item.name} isComplete={item.done} />)
         })}
