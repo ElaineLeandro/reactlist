@@ -18,10 +18,8 @@ export function TextInput({name, onChangeName, onAdd} : ITextInput){
       value={name}
       onChange={event => { 
         onChangeName(event.target.value)
-      }} 
-      
+      }}   
     />
-
       <button title="Adicionar um item"
        onClick={() => onAdd()}
       >

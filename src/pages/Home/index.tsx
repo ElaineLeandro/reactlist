@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Box } from '../../components/Box'
 import { TaskItem} from '../../components/TaksItem'
 import { TextInput } from '../../components/TextInput'
@@ -6,8 +7,13 @@ import styles from './home.module.css'
 
 
 export function Home(){
-  const {list, textInput, setTextInput, handleAdd, handleDelete, handleDone} = todoList()
-  
+  const {list, textInput, setTextInput, handleAdd, handleDelete, handleDone, onInit} = todoList()
+   
+  useEffect(()=>{
+    onInit()
+    console.log("Iniciando a pagina...");
+  }, [])
+
   return(
     
     <section className={styles.home}>
@@ -21,7 +27,7 @@ export function Home(){
    
         {list.map(item =>{
           return (
-          <TaskItem key={item.id} id={item.id} name={item.name} isComplete={item.done} onDelete={handleDelete} onDone={handleDone}/>)
+          <TaskItem key={item.id} id={item.id} name={item.name} isComplete={item.done} onDelete={handleDelete} onDone={handleDone} />)
         })}  
      
     </Box>

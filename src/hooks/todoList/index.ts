@@ -4,21 +4,19 @@ import { TaskItem } from "../../components/TaksItem";
 import { generateId } from '../../utils/generateId'
 import { useDataBase } from "../useDataBase";
 
+type listaType = {
+ id: number;
+ name: string;
+ done: boolean;
+}[]
 
 export function todoList(){
   // const [taksDone , setTeksDone] = useState<ITaskItem>([])
   const {saveData, searchData} = useDataBase()
   const [textInput, setTextInput] = useState('');
  
-  const [list, setList] = useState([{
-    id:1,
-    name:"bola",
-    done: true,
-  },{
-    id:2,
-    name:"pizza",
-    done: false,
-  }]);
+  const [list, setList] = useState <listaType>([]);
+  
   console.log("Lista",list)
   console.log("Oi", textInput)
 
@@ -28,9 +26,9 @@ export function todoList(){
        return
       }
     const newItem = {id:generateId(), name: textInput, done:false,};
-  
-    setList([...list, newItem]);
-    saveData('lista', [...list, newItem]);
+    const newlist = [...list, newItem]
+    setList(newlist);
+    saveData('lista', newlist);
     setTextInput('')
   };
     
@@ -69,6 +67,22 @@ export function todoList(){
     setList(newList);
     //const newList = list.filter(item => item.id !== id) outra alternativa.
   };
+
+  const onInit = () => {
+    //Esta função para carrega para pagina os dados salvo no localStorage.
+    // Pega 
+    //execução ao inicar só quando ser chamada
+    
+    const onIniData =  searchData("lista");
+    if(onIniData?.length) {
+      setList(onIniData) 
+    }
+
+   //Outra forma de verificar se é array!
+    //Array.isArray(onIniData)
+    //Array.isArray(onIniData) && onIniData.length > 0
+  
+  }
   console.log(handleDelete)
    
 
@@ -79,7 +93,8 @@ export function todoList(){
     handleDone,
     handleDelete,
     textInput,
-    setTextInput
+    setTextInput,
+    onInit
     
   }
 }
