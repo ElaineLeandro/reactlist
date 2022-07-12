@@ -2,7 +2,10 @@
   margin: 0 auto;
   width: 100%;
   max-width: 450px;
+  height:60vh;
   background-color: var(--gray-900);
-  padding: 60px;
-  border-radius:12px;
+  padding: 20px;
+  border-radius:8px;
+  overflow: auto;
 }
+

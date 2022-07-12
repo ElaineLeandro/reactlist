@@ -6,11 +6,13 @@ import styles from './home.module.css'
 
 
 export function Home(){
-  const {list, textInput, setTextInput, handleAdd} = todoList()
+  const {list, textInput, setTextInput, handleAdd, handleDelete, handleDone} = todoList()
   
   return(
+    
     <section className={styles.home}>
       <Box>
+      
         <TextInput 
         name={textInput}
         onChangeName={setTextInput}
@@ -18,12 +20,12 @@ export function Home(){
       />
    
         {list.map(item =>{
-          return (<TaskItem key={item.id} id={item.id} name={item.name} isComplete={item.done} />)
-        })}
-       
-      </Box>
+          return (
+          <TaskItem key={item.id} id={item.id} name={item.name} isComplete={item.done} onDelete={handleDelete} onDone={handleDone}/>)
+        })}  
      
-     
+    </Box>
     </section>
+   
   )
 }

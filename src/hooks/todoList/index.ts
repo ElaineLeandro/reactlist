@@ -1,7 +1,13 @@
+import { CodesandboxLogo } from "phosphor-react";
 import { useState } from "react";
+import { TaskItem } from "../../components/TaksItem";
 import { generateId } from '../../utils/generateId'
+import { useDataBase } from "../useDataBase";
+
 
 export function todoList(){
+  // const [taksDone , setTeksDone] = useState<ITaskItem>([])
+  const {saveData, searchData} = useDataBase()
   const [textInput, setTextInput] = useState('');
  
   const [list, setList] = useState([{
@@ -16,27 +22,55 @@ export function todoList(){
   console.log("Lista",list)
   console.log("Oi", textInput)
 
+  /** */
    const handleAdd = () =>{
-    const newItem = { id:generateId(), name: textInput, done:false};
-    setList([...list, newItem]);
-    setTextInput('')
-
-  };
+    if(!textInput){ 
+       return
+      }
+    const newItem = {id:generateId(), name: textInput, done:false,};
   
+    setList([...list, newItem]);
+    saveData('lista', [...list, newItem]);
+    setTextInput('')
+  };
+    
 
   const handleEdit = () =>{
-    console.log(handleEdit)
+ 
   };
 
-  const handleDone = () =>{
-    console.log(handleDone)
-  };
+  const handleDone = (id: number) =>{
+     const updatedList = list.map((taskItem)=>{
+       if(taskItem.id === id){
+        console.log("ValorI",taskItem)
+          taskItem.done = !taskItem.done;
+          console.log("ValorAtu",taskItem)
+          // Outra opção que pode ser aplicado e o mesmo para no return...
+          // return {
+          //   ...taskItem, done: true
+          // }
+       } 
+       return taskItem;
+     })
+     saveData('lista', updatedList);
+     setList(updatedList)
 
-  const handleDelete = () =>{
-    console.log(handleDelete)
   };
-   
   
+    /** Está função é a exclusão da lista de tarefas */
+  const handleDelete = (id:number) =>{
+      const newList = list.filter(item => {
+      if(item.id !== id){
+        return true;
+      } 
+      return false;
+    })
+    saveData('lista', newList);
+    setList(newList);
+    //const newList = list.filter(item => item.id !== id) outra alternativa.
+  };
+  console.log(handleDelete)
+   
 
   return { 
     list,
@@ -46,5 +80,6 @@ export function todoList(){
     handleDelete,
     textInput,
     setTextInput
+    
   }
 }

@@ -1,7 +1,6 @@
 import {ReactNode} from 'react';
 import {Butterfly, PencilLine} from 'phosphor-react';
 import styles from './container.module.css';
-import { Box } from '../../components/Box';
 
 type ContainerPropos={
   children: ReactNode

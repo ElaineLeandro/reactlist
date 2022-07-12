@@ -10,6 +10,7 @@ interface ITextInput {
 export function TextInput({name, onChangeName, onAdd} : ITextInput){
    
   return(
+    
     <div className={styles.topo}>
     <input
     type="text"

@@ -17,10 +17,7 @@
  
 
 }
-*:focus{
-  outline: transparent;
-  box-shadow: 0 0 0 2px var(--green-400);
-}
+
 
 body{
   background: var(--gray-900);
@@ -33,3 +30,4 @@ body, input, select, textarea, button{
   font-weight:400;
   font-size:1rem;
 }
+
