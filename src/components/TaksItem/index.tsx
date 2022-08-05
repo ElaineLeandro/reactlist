@@ -1,5 +1,5 @@
 import styles from './tasksItem.module.css'
-import {CheckSquareOffset, Trash} from 'phosphor-react'
+import {CheckSquareOffset, PencilSimple, Trash} from 'phosphor-react'
 
 interface ITaskItem{
   id:number;
@@ -7,11 +7,11 @@ interface ITaskItem{
   isComplete: boolean;
   onDelete: (id:number) => void;
   onDone: (id:number) => void;
+  onEdit: (id:number) => void;
 }
 
-export function TaskItem({id, name, isComplete, onDelete,onDone}: ITaskItem){
+export function TaskItem({id, name, isComplete, onDelete, onEdit,onDone}: ITaskItem){
    
- 
 
   return (
       <div className={styles.lista}>
@@ -21,13 +21,21 @@ export function TaskItem({id, name, isComplete, onDelete,onDone}: ITaskItem){
               <span className={`${styles.text} ${isComplete && styles.isComplete}` }>{name}</span>
             </label>
             <div>
+            <button 
+               title="Editar tarefa"
+               className={styles.buttonAcao} 
+               onClick={() => onEdit(id)}
+              >
+              <PencilSimple size={16} />
+              </button>
               <button 
-               title="Editar uma tarefa"
+               title="Concluir tarefa"
                className={styles.buttonAcao} 
                onClick={() => onDone(id)}
               >
                 <CheckSquareOffset size={16}/>
               </button>
+
               <button 
               title="Deletar uma tarefa" 
               className={styles.buttonAcao}
@@ -35,6 +43,7 @@ export function TaskItem({id, name, isComplete, onDelete,onDone}: ITaskItem){
               >
                 <Trash size={16}/>
               </button>
+             
             </div>
 
           </li>

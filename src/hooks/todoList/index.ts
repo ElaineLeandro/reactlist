@@ -1,7 +1,5 @@
-import { CodesandboxLogo } from "phosphor-react";
 import { useState } from "react";
-import { TaskItem } from "../../components/TaksItem";
-import { generateId } from '../../utils/generateId'
+import { generateId } from '../../utils/generateId';
 import { useDataBase } from "../useDataBase";
 
 type listaType = {
@@ -11,11 +9,11 @@ type listaType = {
 }[]
 
 export function todoList(){
-  // const [taksDone , setTeksDone] = useState<ITaskItem>([])
-  const {saveData, searchData} = useDataBase()
+  const {saveData, searchData} = useDataBase();
   const [textInput, setTextInput] = useState('');
- 
-  const [list, setList] = useState <listaType>([]);
+  const [modalOpen, setModalOpen] = useState('');
+
+   const [list, setList] = useState <listaType>([]);
   
   console.log("Lista",list)
   console.log("Oi", textInput)
@@ -34,7 +32,10 @@ export function todoList(){
     
 
   const handleEdit = () =>{
- 
+    console.log("show");
+    //se clicar no botão, modal aparece
+    setModalOpen("show");
+    // document.body.addEventListener("click", closeDropdown);
   };
 
   const handleDone = (id: number) =>{
@@ -87,6 +88,7 @@ export function todoList(){
    
 
   return { 
+    modalOpen,
     list,
     handleAdd,
     handleEdit,
@@ -95,6 +97,5 @@ export function todoList(){
     textInput,
     setTextInput,
     onInit
-    
   }
 }
